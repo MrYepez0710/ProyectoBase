@@ -1,5 +1,8 @@
 package com.ex.rest;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.websocket.server.PathParam;
 
 import org.springframework.http.HttpStatus;
@@ -21,4 +24,10 @@ public class HelloWorldRest {
 		return ResponseEntity.status(HttpStatus.OK).body("Hello " + nombre + " In Java");
 	}
 
+	@GetMapping(value="/fechaHoraActual")
+	public ResponseEntity<?> registrarSolicitud(){
+		String fechaActual = new SimpleDateFormat("yyyy-MM-dd HH:mm").format(new Date());
+		return ResponseEntity.status(HttpStatus.OK).body("Fecha y Hora Actual: " + fechaActual);
+	}
+	
 }
